@@ -10,7 +10,7 @@ char *longestConsec(const char *const strings[], int arr_len, int k) {
   int max_len = 0;
   int len = 0;
   int temp = 0;
-  for (int i = 0; i < arr_len - 1; i++) {
+  for (int i = 0; i < arr_len - k + 1; i++) {
     while (temp < k) {
       len += strlen(strings[i + temp]);
       temp++;
@@ -39,5 +39,6 @@ int main() {
   int k = 2;
   char *mine = longestConsec(strarr, size, k);
   printf("%s", mine);
+  free(mine);
   return 0;
 }
